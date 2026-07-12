@@ -13,7 +13,7 @@ resource "azurerm_stack_hci_logical_network" "stack_hci_logical_networks" {
     address_prefix       = each.value.subnet.address_prefix
     ip_allocation_method = each.value.subnet.ip_allocation_method
     dynamic "ip_pool" {
-      for_each = each.value.subnet.ip_pool != null ? [each.value.subnet.ip_pool] : []
+      for_each = each.value.subnet.ip_pool != null ? each.value.subnet.ip_pool : []
       content {
         end   = ip_pool.value.end
         start = ip_pool.value.start

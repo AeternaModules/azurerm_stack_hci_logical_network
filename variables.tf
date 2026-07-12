@@ -34,10 +34,10 @@ EOT
     subnet = object({
       address_prefix       = optional(string)
       ip_allocation_method = string
-      ip_pool = optional(object({
+      ip_pool = optional(list(object({
         end   = string
         start = string
-      }))
+      })))
       route = optional(object({
         address_prefix      = string
         name                = optional(string)
