@@ -1,3 +1,7 @@
+output "stack_hci_logical_networks_id" {
+  description = "Map of id values across all stack_hci_logical_networks, keyed the same as var.stack_hci_logical_networks"
+  value       = { for k, v in azurerm_stack_hci_logical_network.stack_hci_logical_networks : k => v.id }
+}
 output "stack_hci_logical_networks_custom_location_id" {
   description = "Map of custom_location_id values across all stack_hci_logical_networks, keyed the same as var.stack_hci_logical_networks"
   value       = { for k, v in azurerm_stack_hci_logical_network.stack_hci_logical_networks : k => v.custom_location_id }
