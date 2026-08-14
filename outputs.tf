@@ -24,7 +24,7 @@ output "stack_hci_logical_networks_resource_group_name" {
 }
 output "stack_hci_logical_networks_subnet" {
   description = "Map of subnet values across all stack_hci_logical_networks, keyed the same as var.stack_hci_logical_networks"
-  value       = { for k, v in azurerm_stack_hci_logical_network.stack_hci_logical_networks : k => v.subnet if v.subnet != null && length(v.subnet) > 0 }
+  value       = { for k, v in azurerm_stack_hci_logical_network.stack_hci_logical_networks : k => one(v.subnet) if v.subnet != null && length(v.subnet) > 0 }
 }
 output "stack_hci_logical_networks_tags" {
   description = "Map of tags values across all stack_hci_logical_networks, keyed the same as var.stack_hci_logical_networks"
